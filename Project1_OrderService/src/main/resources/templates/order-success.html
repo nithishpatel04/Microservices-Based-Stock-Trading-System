@@ -1,21 +1,48 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Order Placed</title>
+    <meta charset="UTF-8">
+    <title>Order Success</title>
+    <style>
+        .container {
+            text-align: center;
+            margin-top: 60px;
+            font-family: Arial, sans-serif;
+        }
+        h2 {
+            color: green;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        p strong {
+            color: #000;
+        }
+    </style>
 </head>
 <body>
-<h2>Order Placed Successfully</h2>
 
-<p><strong>User ID:</strong> <span th:text="${order.userId}"></span></p>
-<p><strong>Stock:</strong> <span th:text="${order.stockSymbol}"></span></p>
-<p><strong>Quantity:</strong> <span th:text="${order.quantity}"></span></p>
-<p><strong>Price per Unit:</strong> <span th:text="${order.pricePerUnit}"></span></p>
-<p><strong>Total Amount:</strong> <span th:text="${order.totalAmount}"></span></p>
-<p><strong>Status:</strong> <span th:text="${order.status}"></span></p>
+<div class="container">
+    <h2>Order Placed Successfully!</h2>
 
-<br/>
-<a th:href="@{/orders/form}">Place another order</a> |
-<a th:href="@{/orders/list}">View all orders</a>
+    <p>Order ID: <strong th:text="${order.id}"></strong></p>
+    <p>Account No: <strong th:text="${order.accountNo}"></strong></p>
+    <p>Ticker Symbol: <strong th:text="${order.tickerSymbol}"></strong></p>
+
+    <p>Date: <strong th:text="${order.transactionDate}"></strong></p>
+    <p>Time: <strong th:text="${order.transactionTime}"></strong></p>
+
+    <p>Quantity / Volume: <strong th:text="${order.quantityOrVolume}"></strong></p>
+    <p>Price: <strong th:text="${order.price}"></strong></p>
+    <p>Total Amount: <strong th:text="${order.totalAmount}"></strong></p>
+
+    <p>Status: <strong th:text="${order.status}"></strong></p>
+
+    <a th:href="@{/orders/list}">View All Orders</a>
+    <a th:href="@{/orders/form}">Place Another Order</a>
+</div>
 
 </body>
 </html>

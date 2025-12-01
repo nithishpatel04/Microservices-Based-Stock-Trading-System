@@ -2,85 +2,105 @@ package com.va.week10;
 
 import java.time.LocalDateTime;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "market_orders")
 public class Market {
 
+    @Id
     private String id;
-    private String stockSymbol;
-    private int quantity;
-    private double pricePerUnit;
-    private double totalAmount;
-    private String status;          // e.g. "PLACED", "EXECUTED"
+
+    // professor's attributes (camelCase version)
+    private String tickerSymbol;   // ticker_symbol
+    private String stockName;      // stock_name
+    private double quotePrice;     // quote_price
+    private double openPrice;      // open_price
+    private double closePrice;     // close_price
+    private long volume;           // volume
+    private double bid;            // bid
+    private double ask;            // ask
+    private String exchange;       // exchange
+
+    // extras for traceability
     private LocalDateTime createdAt;
 
     public Market() {
     }
 
-    public Market(String id, String stockSymbol, int quantity,
-                  double pricePerUnit, double totalAmount,
-                  String status, LocalDateTime createdAt) {
-        this.id = id;
-        this.stockSymbol = stockSymbol;
-        this.quantity = quantity;
-        this.pricePerUnit = pricePerUnit;
-        this.totalAmount = totalAmount;
-        this.status = status;
-        this.createdAt = createdAt;
-    }
-
-    // Getters & Setters
-
     public String getId() {
         return id;
     }
-
     public void setId(String id) {
         this.id = id;
     }
 
-    public String getStockSymbol() {
-        return stockSymbol;
+    public String getTickerSymbol() {
+        return tickerSymbol;
+    }
+    public void setTickerSymbol(String tickerSymbol) {
+        this.tickerSymbol = tickerSymbol;
     }
 
-    public void setStockSymbol(String stockSymbol) {
-        this.stockSymbol = stockSymbol;
+    public String getStockName() {
+        return stockName;
+    }
+    public void setStockName(String stockName) {
+        this.stockName = stockName;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public double getQuotePrice() {
+        return quotePrice;
+    }
+    public void setQuotePrice(double quotePrice) {
+        this.quotePrice = quotePrice;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public double getOpenPrice() {
+        return openPrice;
+    }
+    public void setOpenPrice(double openPrice) {
+        this.openPrice = openPrice;
     }
 
-    public double getPricePerUnit() {
-        return pricePerUnit;
+    public double getClosePrice() {
+        return closePrice;
+    }
+    public void setClosePrice(double closePrice) {
+        this.closePrice = closePrice;
     }
 
-    public void setPricePerUnit(double pricePerUnit) {
-        this.pricePerUnit = pricePerUnit;
+    public long getVolume() {
+        return volume;
+    }
+    public void setVolume(long volume) {
+        this.volume = volume;
     }
 
-    public double getTotalAmount() {
-        return totalAmount;
+    public double getBid() {
+        return bid;
+    }
+    public void setBid(double bid) {
+        this.bid = bid;
     }
 
-    public void setTotalAmount(double totalAmount) {
-        this.totalAmount = totalAmount;
+    public double getAsk() {
+        return ask;
+    }
+    public void setAsk(double ask) {
+        this.ask = ask;
     }
 
-    public String getStatus() {
-        return status;
+    public String getExchange() {
+        return exchange;
     }
-
-    public void setStatus(String status) {
-        this.status = status;
+    public void setExchange(String exchange) {
+        this.exchange = exchange;
     }
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
-
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }

@@ -3,20 +3,23 @@ package com.npv.week10;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "orders")
-public class Order {
+@Document(collection = "account_transactions")
+public class AccountTransaction {
 
     @Id
     private String id;
 
+    // professor's attributes (Account class)
     private String accountNo;
     private String tickerSymbol;
-    private String transactionDate;   // String for simplicity
-    private String transactionTime;   // String for simplicity
+    private String transactionDate;
+    private String transactionTime;
     private int quantityOrVolume;
     private double price;
-    private double totalAmount;       // quantityOrVolume * price
-    private String status;            // PLACED / EXECUTED / FAILED
+
+    // derived + extra
+    private double totalAmount;
+    private String transactionType;   // e.g. "DEBIT", "CREDIT"
 
     public String getId() {
         return id;
@@ -74,10 +77,10 @@ public class Order {
         this.totalAmount = totalAmount;
     }
 
-    public String getStatus() {
-        return status;
+    public String getTransactionType() {
+        return transactionType;
     }
-    public void setStatus(String status) {
-        this.status = status;
+    public void setTransactionType(String transactionType) {
+        this.transactionType = transactionType;
     }
 }

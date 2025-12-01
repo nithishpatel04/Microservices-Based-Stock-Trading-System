@@ -24,7 +24,8 @@ public class OrderController {
 
     @PostMapping("/place")
     public Order placeOrder(@RequestBody Order orderRequest) {
-        System.out.println("Received order for stock: " + orderRequest.getStockSymbol());
+        System.out.println("Received order for account: " + orderRequest.getAccountNo()
+                + " ticker: " + orderRequest.getTickerSymbol());
         return orderService.placeOrder(orderRequest);
     }
     
@@ -32,6 +33,4 @@ public class OrderController {
     public List<Order> getAllOrdersRest() {
         return orderService.getAllOrders();
     }
-
-
 }

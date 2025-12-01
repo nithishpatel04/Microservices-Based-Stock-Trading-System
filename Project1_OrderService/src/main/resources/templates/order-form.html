@@ -8,20 +8,27 @@
 
 <form th:action="@{/orders/form}" th:object="${order}" method="post">
 
-    <label>User ID:</label>
-    <input th:field="*{userId}" /><br/><br/>
+    <label>Account No:</label>
+    <input th:field="*{accountNo}" /><br/><br/>
 
-    <label>Stock Symbol:</label>
-    <input th:field="*{stockSymbol}" /><br/><br/>
+    <label>Ticker Symbol:</label>
+    <input th:field="*{tickerSymbol}" /><br/><br/>
 
-    <label>Quantity:</label>
-    <input th:field="*{quantity}" type="number" /><br/><br/>
+    <label>Transaction Date:</label>
+    <input th:field="*{transactionDate}" placeholder="2025-11-21" /><br/><br/>
 
-    <label>Price per Unit:</label>
-    <input th:field="*{pricePerUnit}" type="number" step="0.01" /><br/><br/>
+    <label>Transaction Time:</label>
+    <input th:field="*{transactionTime}" placeholder="10:30" /><br/><br/>
+
+    <label>Quantity / Volume:</label>
+    <input th:field="*{quantityOrVolume}" type="number" /><br/><br/>
+
+    <label>Price:</label>
+    <input th:field="*{price}" type="number" step="0.01" /><br/><br/>
 
     <button type="submit">Submit Order</button>
 </form>
+
 
 </body>
 </html>

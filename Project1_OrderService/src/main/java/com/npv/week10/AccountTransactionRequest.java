@@ -1,29 +1,13 @@
 package com.npv.week10;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document(collection = "orders")
-public class Order {
-
-    @Id
-    private String id;
+public class AccountTransactionRequest {
 
     private String accountNo;
     private String tickerSymbol;
-    private String transactionDate;   // String for simplicity
-    private String transactionTime;   // String for simplicity
+    private String transactionDate;
+    private String transactionTime;
     private int quantityOrVolume;
     private double price;
-    private double totalAmount;       // quantityOrVolume * price
-    private String status;            // PLACED / EXECUTED / FAILED
-
-    public String getId() {
-        return id;
-    }
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getAccountNo() {
         return accountNo;
@@ -65,19 +49,5 @@ public class Order {
     }
     public void setPrice(double price) {
         this.price = price;
-    }
-
-    public double getTotalAmount() {
-        return totalAmount;
-    }
-    public void setTotalAmount(double totalAmount) {
-        this.totalAmount = totalAmount;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-    public void setStatus(String status) {
-        this.status = status;
     }
 }
